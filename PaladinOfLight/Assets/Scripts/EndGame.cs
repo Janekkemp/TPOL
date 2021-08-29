@@ -2,15 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Playables;
 
 public class EndGame : MonoBehaviour
 {
     // Start is called before the first frame update
-
-    public GameObject UIObject;
+    public GameObject UiObject;
+    public GameObject cutscenecamera;
+    public PlayableDirector director;
     void Start()
     {
-        UIObject.SetActive(false);
+       
+        cutscenecamera.SetActive(false);
+        UiObject.SetActive(false);
 
     }
 
@@ -18,13 +22,17 @@ public class EndGame : MonoBehaviour
     {
         if (player.gameObject.tag == "Player")
         {
-            UIObject.SetActive(true);
+            cutscenecamera.SetActive(true);
+            director.Play();
             StartCoroutine("WaitForSec");
+            
 
         }
     }
     IEnumerator WaitForSec()
     {
+        yield return new WaitForSeconds(3);
+        UiObject.SetActive(true);
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -1 );
     }

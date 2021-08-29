@@ -337,6 +337,7 @@
 "Assets/Scripts/ShowUI.cs"
 "Assets/Scripts/Sound.cs"
 "Assets/Scripts/Start.cs"
+"Assets/Scripts/StartCutScene.cs"
 "Assets/Scripts/ThirdPersonCharacter.cs"
 "Assets/Scripts/ThirdPersonUserControl.cs"
 -langversion:8.0
